@@ -66,7 +66,8 @@ async def gemini_chat(prompt : Message):
 
 
 
-
-
-
+@app.post('/bar_chart')
+async def bar_chart(prompt : Message):
+    
+    return {"gemini_response" : f"bar graph"}
 
