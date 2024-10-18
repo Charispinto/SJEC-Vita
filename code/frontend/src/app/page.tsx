@@ -17,23 +17,23 @@ export default function Home() {
 
 
   const mockData_m = [
-    { name: 'Jan', value: 400 },
-    { name: 'Feb', value: 300 },
-    { name: 'Mar', value: 200 },
-    { name: 'Apr', value: 278 },
-    { name: 'May', value: 189 },
-    { name: 'Jun', value: 239 },
-    { name: 'Jul', value: 349 },
+    { name: '3.17.0', value: 5 },
+    { name: '5.5.0', value: 4 },
+    { name: '6.3.0', value: 4 },
+    { name: '7.3.42', value: 3 },
+    { name: '8.6.3', value: 2 },
+    { name: '8.9.1', value: 2 },
+    { name: '9.7.3', value: 1 },
   ]
 
   const ViewData = [
     { name: 'Apr', value: 267 },
     { name: 'May', value: 312 },
-    { name: 'Mar', value: 295 },
-    { name: 'Apr', value: 278 },
-    { name: 'May', value: 189 },
-    { name: 'Jun', value: 239 },
-    { name: 'Jul', value: 349 },
+    { name: 'Jun', value: 295 },
+    { name: 'Jul', value: 255 },
+    { name: 'Aug', value: 280 },
+    { name: 'Sep', value: 261 },
+    
   ]
 
 
@@ -49,18 +49,18 @@ export default function Home() {
       let assistantContent = response.data.gemini_response
       assistantContent = assistantContent.replace(/\*/g, '');
 
-      if (assistantContent.toLowerCase().startsWith('bar-graph')) {
+      if (typeof assistantContent === 'string' && assistantContent.toLowerCase().startsWith('bar graph1')) {
         assistantContent = (
           <div>
           <Card className="w-full max-w-3xl">
             <CardHeader>
-              <CardTitle>Wells Frago Stats</CardTitle>
+              <CardTitle>Bar Graph</CardTitle>
             </CardHeader>
             <CardContent>
               <ChartContainer
                 config={{
                   value: {
-                    label: "User Ratings",
+                    label: "Value",
                     color: "hsl(var(--chart-1))",
                   },
                 }}
@@ -73,14 +73,24 @@ export default function Home() {
                     <YAxis />
                     <ChartTooltip content={<ChartTooltipContent />} />
                     <Legend />
-                    <Bar dataKey="App Popularity" fill="var(--color-value)" />
+                    <Bar dataKey="value" fill="var(--color-value)" />
                   </BarChart>
                 </ResponsiveContainer>
               </ChartContainer>
             </CardContent>
           </Card>
+          </div>
+
+
+        )
+      }
           {/* second graph */}
           
+
+
+        if (typeof assistantContent === 'string' && assistantContent.toLowerCase().startsWith('bar graph2')) {
+        assistantContent = (
+          <div>   
       <Card className="w-full max-w-3xl mt-5 ">
       <CardHeader>
         <CardTitle>Wells Fargo Monthly Stats</CardTitle>
@@ -96,7 +106,7 @@ export default function Home() {
           className="h-[300px]"
         >
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={mockData_m}>
+            <LineChart data={ViewData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="month" />
               <YAxis />
@@ -192,6 +202,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+               
             </>
           ) : (
             <ScrollArea className="h-full container mx-[15vh] mt-[10vh]">
