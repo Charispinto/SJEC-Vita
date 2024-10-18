@@ -34,7 +34,7 @@ app.add_middleware(
 
 model1 = GenerativeModel(
     model_name='gemini-1.5-pro-001',
-    system_instruction=[f'You are a chatbot for a company called Wells Fargo you will be speaking to a manager your will be provided with some of the reviews on the product based on these reviews you are supposed to answer the manager with thing like is the product feature to be introduced by the team going to be working out for the customers.  You have to go through the dataset thoroughly and analyse it to have good understanding over the dataset. Respond to the questions only when asked.']
+    system_instruction=[f"You are a chatbot for a company called Wells Fargo you will be speaking to a manager your will be provided with some of the reviews on the product based on these reviews you are supposed to answer the manager with thing like is the product feature to be introduced by the team going to be working out for the customers.  You have to go through the dataset thoroughly and analyse it to have good understanding over the dataset. Respond to the questions only when asked.  "]
 )
 
 chat1 = model1.start_chat()
@@ -71,4 +71,3 @@ async def gemini_chat(prompt : Message):
 async def bar_chart(prompt : Message):
     
     return {"gemini_response" : f"bar-graph"}
-
