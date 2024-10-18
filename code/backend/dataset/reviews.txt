@@ -1,0 +1,54 @@
+sers request the ability to rearrange accounts within the app.
+,
+The user is requesting a comprehensive budgeting tool similar to Bank of America's, with clear categorization and transaction details.
+,
+The user needs an improved bill pay feature in the Wells Fargo mobile app.
+,
+User requests a feature to select the destination account before the mobile check deposit is completed.
+,
+The user wants the app to stop repeatedly requesting personal information updates.
+,
+The user wants the ability to pay multiple bills at once with a single confirmation.
+,
+The user is requesting Wells Fargo to reverse the charge and clear the balance on their account.
+,
+The user wants the ability to get payment information for a debit card while waiting for it to arrive in the mail.
+,
+The user does not request any features but is expressing their satisfaction with Wells Fargo.
+,
+The user wants to be able to redeem any amount of their cashback rewards at once.
+,
+The user requests the Wells Fargo website be more user-friendly and easier to navigate, similar to a previous version.
+,
+Improve the mobile check deposit feature to accurately read endorsements, amounts, and provide consistent, helpful error messages.
+,
+The user requests a running balance feature that includes all outstanding charges, even those from previous billing cycles.
+,
+The user requests the ability for the bank to manually review and remove holds on mobile check deposits.
+,
+The user requests a higher interest rate on their savings account.
+,
+User wants the app to visually differentiate between multiple linked bank accounts.
+,
+The user does not have a feature request; they are expressing satisfaction.
+,
+The user requests the ability to separate personal and business accounts within the app.
+,
+The user requests the addition of an "account summary" tab on the landing page of the Wells Fargo iOS app.
+,
+The user wants to be able to do their banking at Wells Fargo in Greenville, NC.
+,
+The user wants the app to directly offer updates when available.
+,
+Request: Ability to navigate back to the previous page after visiting the investment accounts page within the app.
+,
+The user requests a recurring payment feature for Zelle within the app.
+,
+The user wants to use thumbprint authentication for deposits and streamline the check deposit process.
+,
+Improve labeling and navigation clarity within the mobile app.
+,
+The user does not make a feature request, but rather praises the existing Wells Fargo app.
+,
+The user wants clearer communication and consistency regarding minimum balance rules for checking accounts.
+,

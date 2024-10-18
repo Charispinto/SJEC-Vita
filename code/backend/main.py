@@ -1,13 +1,15 @@
 import vertexai
-# from vertexai.language_models import TextGenerationModel
 from fastapi import FastAPI
 from vertexai.generative_models import GenerativeModel, ChatSession, Part 
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import pandas as pd
 
-# df = pd.read_csv('./wellfargo_top10.csv')
-df = pd.read_csv('./wells_thumbsup.csv')
+df = pd.read_csv('./wellfargo_top10.csv')
+with open('./dataset/reviews.txt','r') as file:
+    data = file.read()
+# print(data)
+# df = pd.read_csv('./wells_thumbsup.csv')
 arranged_text = ""
 for index, row in df.iterrows():
   arranged_text += f"Review Content: {row['content']}\n"
@@ -34,7 +36,7 @@ app.add_middleware(
 
 model1 = GenerativeModel(
     model_name='gemini-1.5-pro-001',
-    system_instruction=[f"You are a chatbot for a company called Wells Fargo you will be speaking to a manager your will be provided with some of the reviews on the product based on these reviews you are supposed to answer the manager with thing like is the product feature to be introduced by the team going to be working out for the customers.  You have to go through the dataset thoroughly and analyse it to have good understanding over the dataset. Respond to the questions only when asked.  "]
+    system_instruction=[f"You are a chatbot for a company called Wells Fargo you will be speaking to a manager your will be provided with some of the reviews on the product based on these reviews you are supposed to answer the manager with thing like is the product feature to be introduced by the team going to be working out for the customers.  You have to go through the dataset thoroughly and analyse it to have good understanding over the dataset. Respond to the questions only when asked.If you are asked 'show me the graph of the version vs rating' then start the answer with 'bar graph1' or if asked 'graph of downloads overtime' start the answer with 'bar graph2' make sure that it is at the begining when you return it. Don't answer to any irrelevant topics or questions, strictly answer the questions which are relevant to the field. please respond in brief"]
 )
 
 chat1 = model1.start_chat()
@@ -42,7 +44,9 @@ chat1 = model1.start_chat()
 
 async def get_chat_responses(chat : ChatSession, prompt : str):
     text_response = []
-    response = chat.send_message(f"These are a google play reviews use them as reference if user has any queries regarding it google-play-reviews : {arranged_text} "  + f"User query : {prompt}" , stream=True)
+    # response = chat.send_message("The dataset is"+arranged_text+prompt, stream=True)
+    response = chat.send_message("The dataset is"+data+prompt, stream=True)
+
     for chunk in response:
         text_response.append(chunk.text)
     
@@ -71,3 +75,6 @@ async def gemini_chat(prompt : Message):
 async def bar_chart(prompt : Message):
     
     return {"gemini_response" : f"bar-graph"}
+
+
+
