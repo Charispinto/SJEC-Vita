@@ -1,0 +1,208 @@
+{
+  "personas": [
+    {
+      "name": "Tech-Savvy Millennial",
+      "age_range": "25-35",
+      "income_level": "Mid to High",
+      "key_needs": [
+        "Seamless mobile banking",
+        "Integration with smart financial tools",
+        "Personalized financial insights",
+        "Budget tracking",
+        "Cashback rewards"
+      ],
+      "preferred_channels": [
+        "Mobile app",
+        "Web banking"
+      ],
+      "features_of_interest": [
+        "AI-powered budgeting assistant",
+        "Automated savings plans",
+        "Cryptocurrency integration",
+        "Real-time spending notifications",
+        "Customizable dashboards"
+      ],
+      "financial_products": [
+        "Cashback credit cards",
+        "High-yield savings accounts",
+        "Student loan refinancing"
+      ],
+      "risk_tolerance": "Moderate",
+      "tech_proficiency": "High"
+    },
+    {
+      "name": "Busy Professional",
+      "age_range": "30-45",
+      "income_level": "High",
+      "key_needs": [
+        "Efficient financial management",
+        "Time-saving automation",
+        "Investment tracking",
+        "Automated bill payments",
+        "Expense management"
+      ],
+      "preferred_channels": [
+        "Mobile app",
+        "Web banking",
+        "Voice assistants"
+      ],
+      "features_of_interest": [
+        "Smart bill reminders",
+        "AI-powered investment recommendations",
+        "Expense tracking with automated categorization",
+        "Premium support"
+      ],
+      "financial_products": [
+        "Everyday checking",
+        "Wealth management services",
+        "Retirement savings accounts"
+      ],
+      "risk_tolerance": "Moderate to High",
+      "tech_proficiency": "Moderate to High"
+    },
+    {
+      "name": "Small Business Owner",
+      "age_range": "35-50",
+      "income_level": "Mid to High",
+      "key_needs": [
+        "Business banking services",
+        "Cash flow management",
+        "Invoicing and payment solutions",
+        "Financial planning tools"
+      ],
+      "preferred_channels": [
+        "Business banking web portal",
+        "Mobile banking"
+      ],
+      "features_of_interest": [
+        "Automated tax reporting",
+        "Cash flow forecasts",
+        "Integrated payroll services",
+        "Loans and lines of credit",
+        "Expense management tools"
+      ],
+      "financial_products": [
+        "Business credit cards",
+        "Business checking",
+        "Short-term loans"
+      ],
+      "risk_tolerance": "Moderate",
+      "tech_proficiency": "Moderate"
+    },
+    {
+      "name": "Retiree/Conservative Investor",
+      "age_range": "60+",
+      "income_level": "Low to Mid",
+      "key_needs": [
+        "Secure and simple banking",
+        "Stable income generation",
+        "Fraud protection",
+        "Long-term savings"
+      ],
+      "preferred_channels": [
+        "Branch visits",
+        "Telephone banking",
+        "Simplified web portal"
+      ],
+      "features_of_interest": [
+        "Easy account access",
+        "Low-risk investment options",
+        "Pension management",
+        "Fraud alerts and protection"
+      ],
+      "financial_products": [
+        "Certificate of Deposit (CD)",
+        "Fixed deposit accounts",
+        "Low-risk bonds"
+      ],
+      "risk_tolerance": "Low",
+      "tech_proficiency": "Low"
+    },
+    {
+      "name": "Frequent Traveler/Expat",
+      "age_range": "30-50",
+      "income_level": "Mid to High",
+      "key_needs": [
+        "Global banking access",
+        "International money transfers",
+        "Currency exchange services",
+        "Multilingual support"
+      ],
+      "preferred_channels": [
+        "Mobile app",
+        "ATM",
+        "International branches"
+      ],
+      "features_of_interest": [
+        "Multi-currency accounts",
+        "Travel insurance integration",
+        "Global ATM fee waivers",
+        "International card usage alerts"
+      ],
+      "financial_products": [
+        "International credit cards",
+        "Multi-currency savings",
+        "Travel loans"
+      ],
+      "risk_tolerance": "Moderate",
+      "tech_proficiency": "Moderate"
+    },
+    {
+      "name": "New-to-Banking/Rural User",
+      "age_range": "18-40",
+      "income_level": "Low",
+      "key_needs": [
+        "Basic banking services",
+        "Easy account access",
+        "Local language support",
+        "Accessibility features"
+      ],
+      "preferred_channels": [
+        "Branch visits",
+        "Mobile app (basic)"
+      ],
+      "features_of_interest": [
+        "Simplified mobile banking",
+        "SMS banking",
+        "No-fee accounts",
+        "Educational resources"
+      ],
+      "financial_products": [
+        "Basic checking accounts",
+        "Microloans",
+        "Savings accounts"
+      ],
+      "risk_tolerance": "Low",
+      "tech_proficiency": "Low"
+    },
+    {
+      "name": "High-Net-Worth Individual (HNI)",
+      "age_range": "40-60",
+      "income_level": "Very High",
+      "key_needs": [
+        "Premium banking services",
+        "Wealth management",
+        "Tax optimization",
+        "Estate planning"
+      ],
+      "preferred_channels": [
+        "Dedicated relationship manager",
+        "Mobile and web",
+        "Private banking services"
+      ],
+      "features_of_interest": [
+        "Personalized investment strategies",
+        "Exclusive access to premium financial products",
+        "Private banking support",
+        "Advanced financial reports"
+      ],
+      "financial_products": [
+        "Wealth management accounts",
+        "Private banking services",
+        "Tax-optimized portfolios"
+      ],
+      "risk_tolerance": "High",
+      "tech_proficiency": "High"
+    }
+  ]
+}

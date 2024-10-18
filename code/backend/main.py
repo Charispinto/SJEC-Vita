@@ -1,4 +1,5 @@
 import vertexai
+# from vertexai.language_models import TextGenerationModel
 from fastapi import FastAPI
 from vertexai.generative_models import GenerativeModel, ChatSession, Part 
 from fastapi.middleware.cors import CORSMiddleware
