@@ -6,7 +6,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { PlusIcon, RefreshCcwIcon, BarChartIcon, LayersIcon, HelpCircleIcon, ActivityIcon, SettingsIcon, MicIcon, SendIcon, AwardIcon } from 'lucide-react'
 import axios from 'axios'
 import ReactMarkdown from 'react-markdown'
-import Image from 'next/image'
+
 
 export default function Home() {
   const [messages, setMessages] = useState<Array<{ role: 'user' | 'assistant', content: string }>>([])
@@ -19,10 +19,11 @@ export default function Home() {
       setInput('')
       setShowGreeting(false)
       
-
+      const response = await axios.post('http://localhost:8000/chat', {text : `${input}`})
       // Simulate AI response
 
-        setMessages(prevMessages => [...prevMessages, { role: 'assistant', content: `hello` }])
+
+        setMessages(prevMessages => [...prevMessages, { role: 'assistant', content: `${response.data.gemini_response}` }])
     }
   }
 
