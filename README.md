@@ -1,5 +1,7 @@
-## College Name - Team Name
-Provide details of team members 
+## SJEC - Vita
+Charis Pinto
+Samwin Periera
+Dickson Borges
 
 ## Problem Statement
 Provide description of which Theme and Problem statement you are attempting
