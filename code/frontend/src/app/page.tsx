@@ -4,26 +4,72 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { PlusIcon, RefreshCcwIcon, BarChartIcon, LayersIcon, HelpCircleIcon, ActivityIcon, SettingsIcon, MicIcon, SendIcon, AwardIcon } from 'lucide-react'
+import { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
+import { Bar, BarChart, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import axios from 'axios'
 import ReactMarkdown from 'react-markdown'
-
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart'
 
 export default function Home() {
   const [messages, setMessages] = useState<Array<{ role: 'user' | 'assistant', content: string }>>([])
   const [input, setInput] = useState('')
   const [showGreeting, setShowGreeting] = useState(true)
 
+
+  const mockData = [
+    { name: 'Jan', value: 400 },
+    { name: 'Feb', value: 300 },
+    { name: 'Mar', value: 200 },
+    { name: 'Apr', value: 278 },
+    { name: 'May', value: 189 },
+    { name: 'Jun', value: 239 },
+    { name: 'Jul', value: 349 },
+  ]
+
   const handleSendMessage = async () => {
     if (input.trim()) {
       setMessages([...messages, { role: 'user', content: input }])
       setInput('')
       setShowGreeting(false)
-      
-      const response = await axios.post('http://localhost:8000/chat', {text : `${input}`})
+      //change endpoint to chat 
+      const response = await axios.post('http://localhost:8000/bar_chart', {text : `${input}`})
       // Simulate AI response
+      
+      let assistantContent = response.data.gemini_response
 
+      if (assistantContent.toLowerCase().startsWith('bar graph')) {
+        assistantContent = (
+          <Card className="w-full max-w-3xl">
+            <CardHeader>
+              <CardTitle>Wells Frago Stats</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ChartContainer
+                config={{
+                  value: {
+                    label: "Value",
+                    color: "hsl(var(--chart-1))",
+                  },
+                }}
+                className="h-[300px]"
+              >
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={mockData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <ChartTooltip content={<ChartTooltipContent />} />
+                    <Legend />
+                    <Bar dataKey="value" fill="var(--color-value)" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </ChartContainer>
+            </CardContent>
+          </Card>
+        )
+      }
 
-        setMessages(prevMessages => [...prevMessages, { role: 'assistant', content: `${response.data.gemini_response}` }])
+      setMessages(prevMessages => [...prevMessages, { role: 'assistant', content: assistantContent }])
     }
   }
 
@@ -99,7 +145,7 @@ export default function Home() {
                 <div key={index} className={`mb-4 ${message.role === 'user' ? 'text-left' : 'text-left'}`}>
                   <div className={`inline-block p-3 rounded-lg max-w-2xl ${message.role === 'user' ? 'bg-yellow-100 text-black' : 'bg-white text-black border border-gray-200'}`}>
                     {/* here is the message part  all graphs and all to be added here*/}
-                    <ReactMarkdown>{message.content}</ReactMarkdown>
+                    <div>{message.content}</div>
                   </div>
                 </div>
               ))}
