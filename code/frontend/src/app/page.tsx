@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { PlusIcon, RefreshCcwIcon, BarChartIcon, LayersIcon, HelpCircleIcon, ActivityIcon, SettingsIcon, MicIcon, SendIcon, AwardIcon } from 'lucide-react'
 import { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
-import { Bar, BarChart, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { Bar, BarChart, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts'
 import axios from 'axios'
 import ReactMarkdown from 'react-markdown'
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart'
@@ -16,7 +16,7 @@ export default function Home() {
   const [showGreeting, setShowGreeting] = useState(true)
 
 
-  const mockData = [
+  const mockData_m = [
     { name: 'Jan', value: 400 },
     { name: 'Feb', value: 300 },
     { name: 'Mar', value: 200 },
@@ -26,19 +26,32 @@ export default function Home() {
     { name: 'Jul', value: 349 },
   ]
 
+  const ViewData = [
+    { name: 'Apr', value: 267 },
+    { name: 'May', value: 312 },
+    { name: 'Mar', value: 295 },
+    { name: 'Apr', value: 278 },
+    { name: 'May', value: 189 },
+    { name: 'Jun', value: 239 },
+    { name: 'Jul', value: 349 },
+  ]
+
+
   const handleSendMessage = async () => {
     if (input.trim()) {
       setMessages([...messages, { role: 'user', content: input }])
       setInput('')
       setShowGreeting(false)
       //change endpoint to chat 
-      const response = await axios.post('http://localhost:8000/bar_chart', {text : `${input}`})
+      const response = await axios.post('http://localhost:8000/chat', {text : `${input}`})
       // Simulate AI response
       
       let assistantContent = response.data.gemini_response
+      assistantContent = assistantContent.replace(/\*/g, '');
 
-      if (assistantContent.toLowerCase().startsWith('bar graph')) {
+      if (assistantContent.toLowerCase().startsWith('bar-graph')) {
         assistantContent = (
+          <div>
           <Card className="w-full max-w-3xl">
             <CardHeader>
               <CardTitle>Wells Frago Stats</CardTitle>
@@ -47,25 +60,66 @@ export default function Home() {
               <ChartContainer
                 config={{
                   value: {
-                    label: "Value",
+                    label: "User Ratings",
                     color: "hsl(var(--chart-1))",
                   },
                 }}
                 className="h-[300px]"
               >
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={mockData}>
+                  <BarChart data={mockData_m}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
                     <YAxis />
                     <ChartTooltip content={<ChartTooltipContent />} />
                     <Legend />
-                    <Bar dataKey="value" fill="var(--color-value)" />
+                    <Bar dataKey="App Popularity" fill="var(--color-value)" />
                   </BarChart>
                 </ResponsiveContainer>
               </ChartContainer>
             </CardContent>
           </Card>
+          {/* second graph */}
+          
+      <Card className="w-full max-w-3xl mt-5 ">
+      <CardHeader>
+        <CardTitle>Wells Fargo Monthly Stats</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <ChartContainer
+          config={{
+            value: {
+              label: "Value",
+              color: "hsl(45, 100%, 50%)", // Yellow color to match the theme
+            },
+          }}
+          className="h-[300px]"
+        >
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={mockData_m}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="month" />
+              <YAxis />
+              <ChartTooltip content={<ChartTooltipContent />} />
+              <Legend />
+              <Line 
+                type="monotone" 
+                dataKey="value" 
+                stroke="var(--color-value)" 
+                strokeWidth={2}
+                dot={{ fill: "hsl(45, 100%, 50%)", r: 4 }}
+                activeDot={{ r: 6 }}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </ChartContainer>
+      </CardContent>
+    </Card> 
+          
+
+          </div>
+
+
         )
       }
 

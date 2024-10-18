@@ -34,7 +34,7 @@ app.add_middleware(
 
 model1 = GenerativeModel(
     model_name='gemini-1.5-pro-001',
-    system_instruction=[f'You are a chatbot for a company called Wells Fargo you will be speaking to a manager your will be provided with some of the reviews on the product based on these reviews you are supposed to answer the manager with thing like is the product feature to be introduced by the team going to be working out for the customers.  You have to go through the dataset thoroughly and analyse it to have good understanding over the dataset. Respond to the questions only when asked. ']
+    system_instruction=[f'You are a chatbot for a company called Wells Fargo you will be speaking to a manager your will be provided with some of the reviews on the product based on these reviews you are supposed to answer the manager with thing like is the product feature to be introduced by the team going to be working out for the customers.  You have to go through the dataset thoroughly and analyse it to have good understanding over the dataset. Respond to the questions only when asked.']
 )
 
 chat1 = model1.start_chat()
@@ -42,7 +42,7 @@ chat1 = model1.start_chat()
 
 async def get_chat_responses(chat : ChatSession, prompt : str):
     text_response = []
-    response = chat.send_message("The dataset is"+arranged_text+prompt, stream=True)
+    response = chat.send_message(f"These are a google play reviews use them as reference if user has any queries regarding it google-play-reviews : {arranged_text} "  + f"User query : {prompt}" , stream=True)
     for chunk in response:
         text_response.append(chunk.text)
     
@@ -70,5 +70,5 @@ async def gemini_chat(prompt : Message):
 @app.post('/bar_chart')
 async def bar_chart(prompt : Message):
     
-    return {"gemini_response" : f"bar graph"}
+    return {"gemini_response" : f"bar-graph"}
 
