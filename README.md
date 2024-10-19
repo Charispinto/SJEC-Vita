@@ -45,3 +45,11 @@ npm run dev
 ![image](https://github.com/user-attachments/assets/534df9b8-5b09-423c-9ff3-814a41614428)
 
 
+## References
+Google Play Store: For user reviews of the app, we referred to user feedback available on the Google Play Store.
+
+Apple App Store: We also used the user reviews available on the Apple App Store for valuable feedback from iOS users.
+
+SimilarWeb: For the app downloads data, we referred to SimilarWeb to gather insights on download metrics and app performance. 
+
+
