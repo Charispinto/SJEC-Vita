@@ -1,6 +1,6 @@
 ## SJEC - Vita
-Charis Pinto
-Samwin Periera
+Charis Pinto,
+Samwin Periera,
 Dickson Borges
 
 ## Problem Statement
